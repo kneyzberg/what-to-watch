@@ -1,11 +1,11 @@
-import WatchForm from './WatchForm';
+import WatchApp from './WatchApp';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-       <WatchForm/> 
+      <header>
+       <WatchApp/> 
       </header>
     </div>
   );
