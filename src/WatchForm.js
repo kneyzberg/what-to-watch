@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-function WatchForm({ genres }) {
+function WatchForm({ genres, getMovies }) {
   const decadeOptions = [
     "1920s",
     "1930s",
@@ -14,15 +14,29 @@ function WatchForm({ genres }) {
     "2010s",
     "2020s"
   ]
+
   const initialFormData = { genre: "", decade: "" };
 
   const [formData, setFormData] = useState(initialFormData);
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setFormData(f => ({...f, [name] : value }));
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    getMovies(formData);
+
+  }
+
+  console.log(formData);
 
   return (
     <div>WHAT ARE YOU IN THE MOOD FOR?
       <form>
         <div>Genre:
-          <select name="genre" id="genre-pick">
+          <select onChange={handleChange} name="genre" id="genre">
             <option value=""> Please pick a genre</option>
             {genres.map(g => <option value={g.id}>{g.name}</option>)}
           </select>
@@ -32,6 +46,9 @@ function WatchForm({ genres }) {
             <option value=""> Please pick a decade</option>
             {decadeOptions.map(d => <option value={d}>{d}</option>)}
           </select>
+        </div>
+        <div>
+          <button type="submit" onClick={handleSubmit}>submit</button>
         </div>
       </form>
 
