@@ -38,9 +38,10 @@ function WatchApp() {
 
   // console.log(movieGenres);
 
+
   async function getMovieRecs(data) {
     const movieRes = await axios.get(`${BASE_URL}/discover/movie`, {
-      params: { with_genres: data.genre, include_adult: false }, 
+      params: { with_genres: data.genre, include_adult: false}, 
       headers: {
         Authorization: `Bearer ${BEARER_TOKEN}`
       }

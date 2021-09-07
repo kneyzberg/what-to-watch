@@ -16,13 +16,19 @@ function WatchForm({ genres, getMovies, streamers }) {
     "2020s"
   ]
 
-  const initialFormData = { genre: "", decade: "" };
+  const initialFormData = { genre: "", decade: "", 8: ""};
 
   const [formData, setFormData] = useState(initialFormData);
 
   function handleChange(e) {
+    console.log(e);
     const { name, value } = e.target;
     setFormData(f => ({...f, [name] : value }));
+  }
+
+  function handleCheckBox(e){
+    const {name, checked} = e.target;
+    setFormData(f => ({...f, [name] : checked}));
   }
 
   function handleSubmit(e) {
@@ -31,7 +37,7 @@ function WatchForm({ genres, getMovies, streamers }) {
 
   }
 
-  console.log(formData);
+  console.log(formData, "form data");
 
   return (
     <div>WHAT ARE YOU IN THE MOOD FOR?
@@ -50,8 +56,8 @@ function WatchForm({ genres, getMovies, streamers }) {
         </div>
         <div>Provider options:
           <ul>
-            {streamers.map(s => <li><input type="checkbox" name={s.id} id={s.id}></input>
-            <label htmlFor={s.id}>{s.provider_name}</label>
+            {streamers.map(s => <li><input onChange={handleCheckBox} type="checkbox" name={s.provider_id} id={s.provider_id}></input>
+            <label htmlFor={s.provider_id}>{s.provider_name}</label>
             </li>)}
           </ul>
         </div>
