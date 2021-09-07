@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
 
-function WatchForm({ genres, getMovies }) {
+function WatchForm({ genres, getMovies, streamers }) {
+  console.log(streamers);
   const decadeOptions = [
     "1920s",
     "1930s",
@@ -46,6 +47,13 @@ function WatchForm({ genres, getMovies }) {
             <option value=""> Please pick a decade</option>
             {decadeOptions.map(d => <option value={d}>{d}</option>)}
           </select>
+        </div>
+        <div>Provider options:
+          <ul>
+            {streamers.map(s => <li><input type="checkbox" name={s.id} id={s.id}></input>
+            <label htmlFor={s.id}>{s.provider_name}</label>
+            </li>)}
+          </ul>
         </div>
         <div>
           <button type="submit" onClick={handleSubmit}>submit</button>
