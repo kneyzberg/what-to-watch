@@ -12,20 +12,19 @@ function WatchApp() {
   const [posterSize, setPosterSize] = useState("");
   const [streamers, setStreamers] = useState("");
 
-  const BASE_URL = "https://api.themoviedb.org/3/"
+  const BASE_URL = "https://api.themoviedb.org/3/";
   useEffect(function getMovieGenres() {
-
     async function fetchGenres() {
       const genreRes = await axios.get(`${BASE_URL}/genre/movie/list`, {
         headers: {
-          Authorization: `Bearer ${BEARER_TOKEN}`
-        }
+          Authorization: `Bearer ${BEARER_TOKEN}`,
+        },
       });
       const configRes = await axios.get(`${BASE_URL}/configuration`, {
         headers: {
-          Authorization: `Bearer ${BEARER_TOKEN}`
-        }
-      } );
+          Authorization: `Bearer ${BEARER_TOKEN}`,
+        },
+      });
       console.log(configRes.data);
       setImgBaseUrl(configRes.data.images.base_url);
       setPosterSize(configRes.data.images.poster_sizes[2]);
@@ -38,54 +37,74 @@ function WatchApp() {
 
   // console.log(movieGenres);
 
-
   async function getMovieRecs(data) {
     const movieRes = await axios.get(`${BASE_URL}/discover/movie`, {
-      params: { with_genres: data.genre, include_adult: false}, 
+      params: {
+        with_genres: data.genre,
+        include_adult: false,
+        primary_release_date: {
+          gte: "",
+          lte: "",
+        },
+      },
       headers: {
-        Authorization: `Bearer ${BEARER_TOKEN}`
-      }
+        Authorization: `Bearer ${BEARER_TOKEN}`,
+      },
     });
     // console.log(movieRes, "movie res");
     // console.log(movieRes.data.results);
     setMovies(movieRes.data.results);
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     async function getProviders() {
       const providers = await axios.get(`${BASE_URL}/watch/providers/movie`, {
-        params: { watch_region: 'US'}, 
+        params: { watch_region: "US" },
         headers: {
-          Authorization: `Bearer ${BEARER_TOKEN}`
-        }
-      }
-      
-    )
-    const providersObj = { 
-      "Netflix": true, 
-      "Disney Plus": true,
-      "Amazon Prime Video": true,
-      "Hulu": true,
-      "Apple TV Plus": true,
-      "HBO Max": true
+          Authorization: `Bearer ${BEARER_TOKEN}`,
+        },
+      });
+      const providersObj = {
+        Netflix: true,
+        "Disney Plus": true,
+        "Amazon Prime Video": true,
+        Hulu: true,
+        "Apple TV Plus": true,
+        "HBO Max": true,
+      };
+
+      let response = providers.data.results.filter(
+        (provider) => providersObj[provider.provider_name] === true
+      );
+      console.log("response", response);
+      setStreamers(response);
     }
-    
-    let response = providers.data.results.filter(provider => providersObj[provider.provider_name] === true)
-    console.log("response", response)
-    setStreamers(response);  
-  }
     getProviders();
-  }, [])
+  }, []);
 
   return (
     <div>
       <h1>Welcome to Kathrin's What to Watch App!</h1>
-      <h3>Fill out the form below to get movie reccomendations based on your mood!</h3>
+      <h3>
+        Fill out the form below to get movie reccomendations based on your mood!
+      </h3>
       {isLoading && <div>Loading</div>}
-      {!isLoading && <WatchForm genres={movieGenres} getMovies={getMovieRecs} streamers={streamers}/>}
-      {movies && <MovieList imgUrl={imgBaseUrl} posterSize={posterSize} movies={movies}/>}
+      {!isLoading && (
+        <WatchForm
+          genres={movieGenres}
+          getMovies={getMovieRecs}
+          streamers={streamers}
+        />
+      )}
+      {movies && (
+        <MovieList
+          imgUrl={imgBaseUrl}
+          posterSize={posterSize}
+          movies={movies}
+        />
+      )}
     </div>
-  )
+  );
 }
 
 export default WatchApp;
