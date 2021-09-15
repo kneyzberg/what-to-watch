@@ -42,16 +42,13 @@ function WatchApp() {
       params: {
         with_genres: data.genre,
         include_adult: false,
-        primary_release_date: {
-          gte: "",
-          lte: "",
-        },
+        primary_release_date.gte: data.start_date
       },
       headers: {
         Authorization: `Bearer ${BEARER_TOKEN}`,
       },
     });
-    // console.log(movieRes, "movie res");
+    console.log(movieRes, "movie res");
     // console.log(movieRes.data.results);
     setMovies(movieRes.data.results);
   }
