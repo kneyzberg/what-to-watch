@@ -53,7 +53,7 @@ function WatchForm({ genres, getMovies, streamers }) {
             ))}
           </select>
         </div>
-        <div>
+        {/* <div>
           Provider options:
           <ul>
             {streamers.map((s) => (
@@ -68,7 +68,7 @@ function WatchForm({ genres, getMovies, streamers }) {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
         <div>
           <button type="submit" onClick={handleSubmit}>
             submit

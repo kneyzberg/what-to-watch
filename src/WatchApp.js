@@ -42,7 +42,7 @@ function WatchApp() {
       params: {
         with_genres: data.genre,
         include_adult: false,
-        primary_release_date.gte: data.start_date
+        // primary_release_date.gte: data.start_date
       },
       headers: {
         Authorization: `Bearer ${BEARER_TOKEN}`,
@@ -81,7 +81,7 @@ function WatchApp() {
 
   return (
     <div>
-      <h1>Welcome to Kathrin's What to Watch App!</h1>
+      <h1>Welcome to Kathrin's and David's What to Watch App!</h1>
       <h3>
         Fill out the form below to get movie reccomendations based on your mood!
       </h3>
