@@ -4,7 +4,7 @@ import { decadeOptions, decadeMap } from "./decadeData";
 function WatchForm({ genres, getMovies, streamers }) {
   console.log(streamers);
 
-  const initialFormData = { genre: "", decade: ""};
+  const initialFormData = { genre: "", decade: "" };
 
   const [formData, setFormData] = useState(initialFormData);
 
@@ -22,9 +22,9 @@ function WatchForm({ genres, getMovies, streamers }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    const start= decadeMap[formData.decade].start;
+    const start = decadeMap[formData.decade].start;
     const end = decadeMap[formData.decade].end;
-    setFormData((f) => ({...f, start_date: start, end_date: end }));
+    setFormData((f) => ({ ...f, start_date: start, end_date: end }));
     getMovies(formData);
   }
 
@@ -36,7 +36,12 @@ function WatchForm({ genres, getMovies, streamers }) {
       <form>
         <div>
           Genre:
-          <select onChange={handleChange} name="genre" id="genre">
+          <select
+            onChange={handleChange}
+            name="genre"
+            id="genre"
+            data-testid="genre"
+          >
             <option value=""> Please pick a genre</option>
             {genres.map((g) => (
               <option value={g.id}>{g.name}</option>
