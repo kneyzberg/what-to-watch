@@ -42,7 +42,8 @@ function WatchApp() {
       params: {
         with_genres: data.genre,
         include_adult: false,
-        // primary_release_date.gte: data.start_date
+        // `${start_date}`: data.start_date,
+
       },
       headers: {
         Authorization: `Bearer ${BEARER_TOKEN}`,
