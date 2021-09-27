@@ -4,7 +4,7 @@ import BEARER_TOKEN from "./config";
 import WatchForm from "./WatchForm";
 import MovieList from "./MovieList";
 import "./WatchApp.css";
-import "./clapboard.jpeg"
+import "./clapboard.jpeg";
 
 function WatchApp() {
   const [movieGenres, setMovieGenres] = useState([]);
@@ -44,8 +44,8 @@ function WatchApp() {
       params: {
         with_genres: data.genre,
         include_adult: false,
-        // `${start_date}`: data.start_date,
-
+        "primary_release_date.gte": "2010-10-10",
+        "primary_release_date.lte": "2019-10-10",
       },
       headers: {
         Authorization: `Bearer ${BEARER_TOKEN}`,
@@ -84,7 +84,9 @@ function WatchApp() {
 
   return (
     <div className="WatchApp-container">
-      <h1 className="WatchApp-title">Welcome to Kathrin's and David's What to Watch App!</h1>
+      <h1 className="WatchApp-title">
+        Welcome to Kathrin's and David's What to Watch App!
+      </h1>
       <div className="WatchApp-form">
         {isLoading && <div>Loading</div>}
         {!isLoading && (
@@ -101,9 +103,7 @@ function WatchApp() {
             movies={movies}
           />
         )}
-
       </div>
-
     </div>
   );
 }
