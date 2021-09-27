@@ -3,6 +3,8 @@ import axios from "axios";
 import BEARER_TOKEN from "./config";
 import WatchForm from "./WatchForm";
 import MovieList from "./MovieList";
+import "./WatchApp.css";
+import "./clapboard.jpeg"
 
 function WatchApp() {
   const [movieGenres, setMovieGenres] = useState([]);
@@ -81,26 +83,27 @@ function WatchApp() {
   }, []);
 
   return (
-    <div>
-      <h1>Welcome to Kathrin's and David's What to Watch App!</h1>
-      <h3>
-        Fill out the form below to get movie reccomendations based on your mood!
-      </h3>
-      {isLoading && <div>Loading</div>}
-      {!isLoading && (
-        <WatchForm
-          genres={movieGenres}
-          getMovies={getMovieRecs}
-          streamers={streamers}
-        />
-      )}
-      {movies && (
-        <MovieList
-          imgUrl={imgBaseUrl}
-          posterSize={posterSize}
-          movies={movies}
-        />
-      )}
+    <div className="WatchApp-container">
+      <h1 className="WatchApp-title">Welcome to Kathrin's and David's What to Watch App!</h1>
+      <div className="WatchApp-form">
+        {isLoading && <div>Loading</div>}
+        {!isLoading && (
+          <WatchForm
+            genres={movieGenres}
+            getMovies={getMovieRecs}
+            streamers={streamers}
+          />
+        )}
+        {movies && (
+          <MovieList
+            imgUrl={imgBaseUrl}
+            posterSize={posterSize}
+            movies={movies}
+          />
+        )}
+
+      </div>
+
     </div>
   );
 }

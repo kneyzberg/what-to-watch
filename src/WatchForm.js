@@ -32,7 +32,9 @@ function WatchForm({ genres, getMovies, streamers }) {
 
   return (
     <div>
-      WHAT ARE YOU IN THE MOOD FOR?
+      <h3>
+        Fill out the form below to get movie reccomendations based on your mood!
+      </h3>
       <form>
         <div>
           Genre:
