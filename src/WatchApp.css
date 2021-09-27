@@ -1,4 +1,3 @@
-
 .WatchApp-container {
   display: flex;
   justify-content: center;
@@ -11,12 +10,12 @@
   padding-top: 40px;
   padding-bottom: 40px;
   font-size: 3rem;
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Source Code Pro", monospace;
   background-color: #70baf4;
 }
 
 .WatchApp-form {
-  width: 2000px;
+  width: 1500px;
   height: 1000px;
   background-image: url("./clapboard.jpeg");
   background-size: cover !important;

@@ -1,0 +1,23 @@
+.MovieList-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+@include media-breakpoint-up(lg) {
+  .MovieList-shrink {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    padding-left: 400px;
+    padding-right: 400px;
+  }
+}
