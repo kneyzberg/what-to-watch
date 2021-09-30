@@ -1,4 +1,2 @@
-1. Add in decade
 2. add in styles for components 
-3. add in testing
 4. work on provider component 

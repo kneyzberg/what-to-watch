@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { decadeOptions, decadeMap } from "./decadeData";
+import "./WatchForm.css";
 
 function WatchForm({ genres, getMovies, streamers }) {
   console.log(streamers);
@@ -50,6 +51,7 @@ function WatchForm({ genres, getMovies, streamers }) {
         <div>
           Genre:
           <select
+            className="form-select m-3"
             onChange={handleChangeGenre}
             name="genre"
             id="genre"
