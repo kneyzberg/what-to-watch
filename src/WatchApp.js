@@ -88,7 +88,7 @@ function WatchApp() {
       <h1 className="WatchApp-title">
         Welcome to Kathrin's and David's What to Watch App!
       </h1>
-      <div className="WatchApp-form">
+      <section className="WatchApp-form">
         {isLoading && <div>Loading</div>}
         {!isLoading && (
           <WatchForm
@@ -97,6 +97,8 @@ function WatchApp() {
             streamers={streamers}
           />
         )}
+      </section>
+      <section>
         {movies && (
           <MovieList
             imgUrl={imgBaseUrl}
@@ -104,7 +106,7 @@ function WatchApp() {
             movies={movies}
           />
         )}
-      </div>
+      </section>
     </div>
   );
 }

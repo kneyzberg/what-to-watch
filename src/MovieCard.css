@@ -1,4 +1,11 @@
 .MovieCard-container {
   width: 200px;
-  height: 300px;
+  height: 330px;
+  /* border: 1px solid black; */
+}
+
+.Movie-card-text {
+  font-family: 'Scheherazade New', serif;
+  font-weight: bold;
+  font-size: 1.2rem;
 }

@@ -6,9 +6,11 @@ function MovieCard({ imgUrl, posterSize, movie }) {
 
   return (
     <div className="MovieCard-container">
-      <img src={posterURL} alt={`Poster for ${movie.title}`} />
-      <div>{movie.title}</div>
-      <div>{movie.release_date}</div>
+      <div>
+        <img src={posterURL} alt={`Poster for ${movie.title}`} />
+        <div className="Movie-card-text">{movie.title}</div>
+        <div className="Movie-card-text">({movie.release_date.slice(0, 4)})</div>
+      </div>
     </div>
   );
 }

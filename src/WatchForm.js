@@ -47,11 +47,11 @@ function WatchForm({ genres, getMovies, streamers }) {
       <h3>
         Fill out the form below to get movie reccomendations based on your mood!
       </h3>
-      <form>
+      <form className="WatchForm-form">
         <div>
-          Genre:
+          <span className="WatchForm-categories">Genre:</span>
           <select
-            className="form-select m-3"
+            className="form-select m-2"
             onChange={handleChangeGenre}
             name="genre"
             id="genre"
@@ -65,32 +65,21 @@ function WatchForm({ genres, getMovies, streamers }) {
         </div>
         <div>
           {" "}
-          Decade:
-          <select onChange={handleChangeDecade} name="decade" id="decade">
+          <span className="WatchForm-categories">Decade:</span>
+          <select 
+            className="form-select m-2"
+            onChange={handleChangeDecade} 
+            name="decade" 
+            id="decade"
+          >
             <option value=""> Please pick a decade</option>
             {decadeOptions.map((d) => (
               <option value={d}>{d}</option>
             ))}
           </select>
         </div>
-        {/* <div>
-          Provider options:
-          <ul>
-            {streamers.map((s) => (
-              <li>
-                <input
-                  onChange={handleCheckBox}
-                  type="checkbox"
-                  name={s.provider_id}
-                  id={s.provider_id}
-                ></input>
-                <label htmlFor={s.provider_id}>{s.provider_name}</label>
-              </li>
-            ))}
-          </ul>
-        </div> */}
         <div>
-          <button type="submit" onClick={handleSubmit}>
+          <button className="btn btn-info mt-2" type="submit" onClick={handleSubmit}>
             submit
           </button>
         </div>
