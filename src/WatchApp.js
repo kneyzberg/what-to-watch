@@ -40,18 +40,19 @@ function WatchApp() {
   // console.log(movieGenres);
 
   async function getMovieRecs(data) {
+    console.log(data, "data api call");
     const movieRes = await axios.get(`${BASE_URL}/discover/movie`, {
       params: {
         with_genres: data.genre,
         include_adult: false,
-        "primary_release_date.gte": "2010-10-10",
-        "primary_release_date.lte": "2019-10-10",
+        "primary_release_date.gte": data.start_date,
+        "primary_release_date.lte": data.end_date,
       },
       headers: {
         Authorization: `Bearer ${BEARER_TOKEN}`,
       },
     });
-    console.log(movieRes, "movie res");
+    // console.log(movieRes, "movie res");
     // console.log(movieRes.data.results);
     setMovies(movieRes.data.results);
   }

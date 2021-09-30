@@ -8,11 +8,25 @@ function WatchForm({ genres, getMovies, streamers }) {
 
   const [formData, setFormData] = useState(initialFormData);
 
-  function handleChange(e) {
-    console.log(e);
+  function handleChangeGenre(e) {
+    console.log(e, "event");
     const { name, value } = e.target;
     setFormData((f) => ({ ...f, [name]: value }));
     console.log(formData, "form data");
+  }
+
+  function handleChangeDecade(e) {
+    const { name, value } = e.target;
+    console.log("value", value);
+
+    const start = decadeMap[value].start;
+    const end = decadeMap[value].end;
+    setFormData((f) => ({
+      ...f,
+      start_date: start,
+      end_date: end,
+      [name]: value,
+    }));
   }
 
   function handleCheckBox(e) {
@@ -22,9 +36,6 @@ function WatchForm({ genres, getMovies, streamers }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    const start = decadeMap[formData.decade].start;
-    const end = decadeMap[formData.decade].end;
-    setFormData((f) => ({ ...f, start_date: start, end_date: end }));
     getMovies(formData);
   }
 
@@ -39,7 +50,7 @@ function WatchForm({ genres, getMovies, streamers }) {
         <div>
           Genre:
           <select
-            onChange={handleChange}
+            onChange={handleChangeGenre}
             name="genre"
             id="genre"
             data-testid="genre"
@@ -53,7 +64,7 @@ function WatchForm({ genres, getMovies, streamers }) {
         <div>
           {" "}
           Decade:
-          <select onChange={handleChange} name="decade" id="decade">
+          <select onChange={handleChangeDecade} name="decade" id="decade">
             <option value=""> Please pick a decade</option>
             {decadeOptions.map((d) => (
               <option value={d}>{d}</option>
