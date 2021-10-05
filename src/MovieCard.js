@@ -1,16 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "./MovieCard.css";
 
 function MovieCard({ imgUrl, posterSize, movie }) {
+  const [hover, setHover] = useState(false);
   const posterURL = `${imgUrl}/${posterSize}/${movie.poster_path}`;
+
+  function mouseOn(e) {
+    setHover(true);
+  }
+
+  function mouseOut(e) {
+    setHover(false);
+  }
 
   return (
     <div className="MovieCard-container">
-      <div>
-        <img src={posterURL} alt={`Poster for ${movie.title}`} />
-        <div className="Movie-card-text">{movie.title}</div>
-        <div className="Movie-card-text">({movie.release_date.slice(0, 4)})</div>
-      </div>
+      <img
+        src={posterURL}
+        alt={`Poster for ${movie.title}`}
+        onMouseOver={mouseOn}
+        onMouseOut={mouseOut}
+      />
+      <div className="Movie-card-text">{movie.title}</div>
+      <div className="Movie-card-text">({movie.release_date.slice(0, 4)})</div>
     </div>
   );
 }

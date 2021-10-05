@@ -45,7 +45,7 @@ function WatchForm({ genres, getMovies, streamers }) {
   return (
     <div>
       <h3>
-        Fill out the form below to get movie reccomendations based on your mood!
+        Fill out the form below to get movie recommendations based on your mood!
       </h3>
       <form className="WatchForm-form">
         <div>
@@ -66,10 +66,10 @@ function WatchForm({ genres, getMovies, streamers }) {
         <div>
           {" "}
           <span className="WatchForm-categories">Decade:</span>
-          <select 
+          <select
             className="form-select m-2"
-            onChange={handleChangeDecade} 
-            name="decade" 
+            onChange={handleChangeDecade}
+            name="decade"
             id="decade"
           >
             <option value=""> Please pick a decade</option>
@@ -79,7 +79,11 @@ function WatchForm({ genres, getMovies, streamers }) {
           </select>
         </div>
         <div>
-          <button className="btn btn-info mt-2" type="submit" onClick={handleSubmit}>
+          <button
+            className="btn btn-info mt-2"
+            type="submit"
+            onClick={handleSubmit}
+          >
             submit
           </button>
         </div>
