@@ -20,6 +20,7 @@ function MovieCard({ imgUrl, posterSize, movie }) {
         alt={`Poster for ${movie.title}`}
         onMouseOver={mouseOn}
         onMouseOut={mouseOut}
+        className={hover ? "Image-transparent" : ""}
       />
       <div className="Movie-card-text">{movie.title}</div>
       <div className="Movie-card-text">({movie.release_date.slice(0, 4)})</div>

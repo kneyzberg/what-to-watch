@@ -5,7 +5,11 @@
 }
 
 .Movie-card-text {
-  font-family: 'Scheherazade New', serif;
+  font-family: "Scheherazade New", serif;
   font-weight: bold;
   font-size: 1.2rem;
+}
+
+.Image-transparent {
+  opacity: 0.6;
 }
