@@ -27,7 +27,7 @@ function WatchApp() {
           Authorization: `Bearer ${BEARER_TOKEN}`,
         },
       });
-      console.log(configRes.data);
+
       setImgBaseUrl(configRes.data.images.base_url);
       setPosterSize(configRes.data.images.poster_sizes[2]);
 
@@ -37,10 +37,7 @@ function WatchApp() {
     fetchGenres();
   }, []);
 
-  // console.log(movieGenres);
-
   async function getMovieRecs(data) {
-    console.log(data, "data api call");
     const movieRes = await axios.get(`${BASE_URL}/discover/movie`, {
       params: {
         with_genres: data.genre,
@@ -52,8 +49,6 @@ function WatchApp() {
         Authorization: `Bearer ${BEARER_TOKEN}`,
       },
     });
-    // console.log(movieRes, "movie res");
-    // console.log(movieRes.data.results);
     setMovies(movieRes.data.results);
   }
 
@@ -77,7 +72,6 @@ function WatchApp() {
       let response = providers.data.results.filter(
         (provider) => providersObj[provider.provider_name] === true
       );
-      console.log("response", response);
       setStreamers(response);
     }
     getProviders();

@@ -3,23 +3,16 @@ import { decadeOptions, decadeMap } from "./decadeData";
 import "./WatchForm.css";
 
 function WatchForm({ genres, getMovies, streamers }) {
-  console.log(streamers);
-
   const initialFormData = { genre: "", decade: "" };
-
   const [formData, setFormData] = useState(initialFormData);
 
   function handleChangeGenre(e) {
-    console.log(e, "event");
     const { name, value } = e.target;
     setFormData((f) => ({ ...f, [name]: value }));
-    console.log(formData, "form data");
   }
 
   function handleChangeDecade(e) {
     const { name, value } = e.target;
-    console.log("value", value);
-
     const start = decadeMap[value].start;
     const end = decadeMap[value].end;
     setFormData((f) => ({
@@ -30,17 +23,10 @@ function WatchForm({ genres, getMovies, streamers }) {
     }));
   }
 
-  function handleCheckBox(e) {
-    const { name, checked } = e.target;
-    setFormData((f) => ({ ...f, [name]: checked }));
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
     getMovies(formData);
   }
-
-  console.log(formData, "form data");
 
   return (
     <div>
