@@ -2,39 +2,71 @@
 
 exports[`MovieList test matches snapshot 1`] = `
 <div>
-  <div>
-    <div>
-      <div>
-        Testing Movie Card1
-         
-        2021-09-22
-      </div>
+  <div
+    class="MovieList-container MovieList-shrink"
+  >
+    <div
+      class="MovieCard-container"
+    >
       <img
         alt="Poster for Testing Movie Card1"
+        class=""
         src="testingmovies.com/w-3//test.jpg"
       />
-    </div>
-    <div>
-      <div>
-        Testing Movie Card2
-         
-        2021-09-22
+      <div
+        class="Movie-card-text"
+      >
+        Testing Movie Card1
       </div>
+      <div
+        class="Movie-card-text"
+      >
+        (
+        2021
+        )
+      </div>
+    </div>
+    <div
+      class="MovieCard-container"
+    >
       <img
         alt="Poster for Testing Movie Card2"
+        class=""
         src="testingmovies.com/w-3//test.jpg"
       />
-    </div>
-    <div>
-      <div>
-        Testing Movie Card3
-         
-        2021-09-22
+      <div
+        class="Movie-card-text"
+      >
+        Testing Movie Card2
       </div>
+      <div
+        class="Movie-card-text"
+      >
+        (
+        2021
+        )
+      </div>
+    </div>
+    <div
+      class="MovieCard-container"
+    >
       <img
         alt="Poster for Testing Movie Card3"
+        class=""
         src="testingmovies.com/w-3//test.jpg"
       />
+      <div
+        class="Movie-card-text"
+      >
+        Testing Movie Card3
+      </div>
+      <div
+        class="Movie-card-text"
+      >
+        (
+        2021
+        )
+      </div>
     </div>
   </div>
 </div>

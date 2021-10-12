@@ -2,16 +2,26 @@
 
 exports[`Movie card test matches snapshot 1`] = `
 <div>
-  <div>
-    <div>
-      Testing Movie Card
-       
-      2021-09-22
-    </div>
+  <div
+    class="MovieCard-container"
+  >
     <img
       alt="Poster for Testing Movie Card"
+      class=""
       src="testingmovies.com/w-3//test.jpg"
     />
+    <div
+      class="Movie-card-text"
+    >
+      Testing Movie Card
+    </div>
+    <div
+      class="Movie-card-text"
+    >
+      (
+      2021
+      )
+    </div>
   </div>
 </div>
 `;

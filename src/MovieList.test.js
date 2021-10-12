@@ -43,6 +43,6 @@ describe("MovieList test", () => {
     const { getByText } = render(
       <MovieList movies={movies} imgUrl={imgUrl} posterSize={posterSize} />
     );
-    expect(getByText("Testing Movie Card2 2021-09-22")).toBeInTheDocument();
+    expect(getByText("Testing Movie Card2")).toBeInTheDocument();
   });
 });

@@ -3,11 +3,20 @@
 exports[`Testing the WatchForm component matches snapshot 1`] = `
 <div>
   <div>
-    WHAT ARE YOU IN THE MOOD FOR?
-    <form>
+    <h3>
+      Fill out the form below to get movie recommendations based on your mood!
+    </h3>
+    <form
+      class="WatchForm-form"
+    >
       <div>
-        Genre:
+        <span
+          class="WatchForm-categories"
+        >
+          Genre:
+        </span>
         <select
+          class="form-select m-2"
           data-testid="genre"
           id="genre"
           name="genre"
@@ -36,8 +45,13 @@ exports[`Testing the WatchForm component matches snapshot 1`] = `
       </div>
       <div>
          
-        Decade:
+        <span
+          class="WatchForm-categories"
+        >
+          Decade:
+        </span>
         <select
+          class="form-select m-2"
           id="decade"
           name="decade"
         >
@@ -105,6 +119,7 @@ exports[`Testing the WatchForm component matches snapshot 1`] = `
       </div>
       <div>
         <button
+          class="btn btn-info mt-2"
           type="submit"
         >
           submit
